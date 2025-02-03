@@ -3,7 +3,7 @@ import { FaCamera } from "react-icons/fa";
 import { MdUpload } from "react-icons/md";
 import { MdOutlinePhotoAlbum } from "react-icons/md";
 import OutSideClick from "../../components/HomePart/MiddelPart/click";
-import coverPhot from "../../src/assets/defaultImage/defaultcover.jpg";
+import coverPhot from "../../assets/defaultImage/defaultcover.jpg";
 
 const CoverPhoto = ({ coverImg, visitor }) => {
   const [visible, setVisible] = useState(false);
