@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import CommentPart from "./CommentPart";
 import PostManu from "./PostManu";
 import avater from "../../../../assets/defaultImage/avatar.png";
+import coverimg from "../../../../assets/defaultImage/defaultcover.jpg";
 
 const ViewPost = ({ post }) => {
   console.log(post);
@@ -28,10 +29,7 @@ const ViewPost = ({ post }) => {
           <div className="w-12 h-12  bg-primary_bg rounded-full overflow-hidden object-cover">
             <Link to={`/profile/${post.user.userName}`}>
               <img
-                src={
-                  post.user === "profilePicture" ||
-                  "../../src/assets/defaultImage/avatar.png"
-                }
+                src={post.user === "profilePicture" || avater}
                 alt="profile pic"
               />
             </Link>
@@ -128,10 +126,7 @@ const ViewPost = ({ post }) => {
                       <div className="w-full h-40 lg:h-52">
                         <img
                           className="w-full h-full object-cover"
-                          src={
-                            post.user.coverPhoto ||
-                            "../../src/assets/defaultImage/defaultcover.jpg"
-                          }
+                          src={post.user.coverPhoto || coverimg}
                           alt="profile Cover"
                         />
                       </div>

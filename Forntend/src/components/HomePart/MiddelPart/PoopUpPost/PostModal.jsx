@@ -13,6 +13,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 import { toast, ToastContainer } from "react-toastify";
 import dataUrlToBlob from "../../../Funcation/dataUrlToBlob";
 import { Link } from "react-router-dom";
+import avater from "../../../../assets/defaultImage/avatar.png";
 
 const PostModal = ({ setModal, modal }) => {
   const clickOutside = useRef(null);
@@ -145,13 +146,7 @@ const PostModal = ({ setModal, modal }) => {
                   to="/profile"
                   className="w-12 h-12  bg-primary_bg rounded-full overflow-hidden object-cover cursor-pointer"
                 >
-                  <img
-                    src={
-                      user.profilePicture ||
-                      "../../src/assets/defaultImage/avatar.png"
-                    }
-                    alt="profile pic"
-                  />
+                  <img src={user.profilePicture || avater} alt="profile pic" />
                 </Link>
                 <div>
                   <p className="font-GilroyMedium text-base text-primary_bg group-hover:text-main_bg transition-all ease-linear duration-100 capitalize">

@@ -3,6 +3,7 @@ import { PostIcon } from "../../../Funcation/PostIcon";
 import PostModal from "./PostModal";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import avater from "../../../../assets/defaultImage/avatar.png";
 
 const MidPost = () => {
   const [modal, setModal] = useState(false);
@@ -22,13 +23,7 @@ const MidPost = () => {
             to="/profile"
             className="col-start-1 col-end-2 w-12 h-12  bg-primary_bg rounded-full overflow-hidden object-cover"
           >
-            <img
-              src={
-                user.profilePicture ||
-                "../../src/assets/defaultImage/avatar.png"
-              }
-              alt="profile pic"
-            />
+            <img src={user.profilePicture || avater} alt="profile pic" />
           </Link>
           <div className="col-start-2 col-end-13">
             <input
