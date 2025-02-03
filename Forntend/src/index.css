@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary_bg: #66717f;
+  --main_bg: #ffffff;
+  --page_bg: #ddd;
+  --rounded_bg: #9b34eb;
+  --red_bg: #fc0202;
+  --opacity_bg: rgba(255, 255, 255, 0.5);
+}
+
+body {
+  background-color: var(--main_bg);
+}
+.dark {
+  --main_bg: #212121;
+  --primary_bg: #fff;
+  --page_bg: #b9b1b1;
+  --opacity_bg: rgba(0, 0, 0, 0.5);
+}
+@font-face {
+  font-family: "Gilroy-Black";
+  src: url(../src/assets/Fonts/Gilroy-Black.ttf);
+}
+@font-face {
+  font-family: "Gilroy-Bold";
+  src: url(../src/assets/Fonts/Gilroy-Bold.ttf);
+}
+@font-face {
+  font-family: "Gilroy-Regular";
+  src: url(../src/assets/Fonts/Gilroy-Regular.ttf);
+}
+@font-face {
+  font-family: "Gilroy-Medium";
+  src: url(../src/assets/Fonts/Gilroy-Medium.ttf);
+}
+
+/* background modal post */
+
+.bgPost {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+}
+.bgPost textarea {
+  color: #fff;
+  height: 100%;
+  line-height: 28px;
+  padding: 0px 20px 0px 20px;
+  text-align: center;
+}
+.bgPost textarea::placeholder {
+  color: #ddd;
+}
+
+/* modal no scroll */
+
+.no-scroll {
+  overflow: hidden !important;
+}
+.croper .reactEasyCrop_Container img {
+  width: 100%;
+  object-fit: contain;
+}
+.croper .reactEasyCrop_CropAreaGrid {
+  width: 250px !important;
+  height: 250px !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.coustom_range[type="range"] {
+  appearance: none;
+  background-color: #9b34eb;
+  height: 4px;
+  border-radius: 10px;
+}
+/* .coustom_range[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  background-color: #fc0202;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  outline: none;
+} */
