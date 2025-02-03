@@ -3,6 +3,7 @@ import { FaCamera } from "react-icons/fa";
 import { MdUpload } from "react-icons/md";
 import { MdOutlinePhotoAlbum } from "react-icons/md";
 import OutSideClick from "../../components/HomePart/MiddelPart/click";
+import coverPhot from "../../src/assets/defaultImage/defaultcover.jpg";
 
 const CoverPhoto = ({ coverImg, visitor }) => {
   const [visible, setVisible] = useState(false);
@@ -15,7 +16,7 @@ const CoverPhoto = ({ coverImg, visitor }) => {
       <div className="relative w-full h-52 md:h-96 mt-[69px] cursor-pointer">
         <img
           className="w-full h-full object-cover"
-          src={coverImg || "../../src/assets/defaultImage/defaultcover.jpg"}
+          src={coverImg || coverPhot}
           alt="profile Cover"
         />
         {visitor ? (
