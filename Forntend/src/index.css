@@ -69,6 +69,15 @@ body {
   height: 250px !important;
   color: rgba(255, 255, 255, 0.7) !important;
 }
+.croper_cover .reactEasyCrop_Container img {
+  width: 100%;
+  object-fit: cover;
+}
+/* .croper_cover .reactEasyCrop_CropAreaGrid {
+  width: 100% !important;
+  height: 100% !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+} */
 
 .coustom_range[type="range"] {
   appearance: none;

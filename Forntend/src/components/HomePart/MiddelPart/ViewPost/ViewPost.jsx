@@ -13,8 +13,6 @@ import avater from "../../../../assets/defaultImage/avatar.png";
 import coverimg from "../../../../assets/defaultImage/defaultcover.jpg";
 
 const ViewPost = ({ post }) => {
-  console.log(post);
-
   const [visible, setVisible] = useState(false);
   const [manuVisible, setManuVisible] = useState(false);
   const user = useSelector((state) => state.counter.value);

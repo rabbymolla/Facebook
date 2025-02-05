@@ -96,6 +96,7 @@ const SelectPhoto = ({ setImage, image, uploadPhoto, setVisible }) => {
         if (profilePicturePost.status === "done") {
           setLoading(false);
           setVisible(false);
+          setImage("");
           uploadPhoto.current.style.backgroundImage = `url(${responsImage[0].url})`;
           localStorage.setItem(
             "user",

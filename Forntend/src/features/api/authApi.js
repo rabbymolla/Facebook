@@ -84,6 +84,17 @@ export const authApi = createApi({
         data: respons,
       }),
     }),
+    uploadCoverProfile: builder.mutation({
+      query: ({ url, id }) => ({
+        url: "/api/v1/auth/updatecover",
+        method: "PUT",
+        body: { url, id },
+      }),
+      transformResponse: (respons) => ({
+        status: "done",
+        data: respons,
+      }),
+    }),
 
     //
   }),
@@ -100,6 +111,7 @@ export const {
   useGetAllPostQuery,
   useGetUserProfileQuery,
   useUploadProfileMutation,
+  useUploadCoverProfileMutation,
 } = authApi;
 
 // // Define a service using a base URL and expected endpoints
