@@ -1,6 +1,5 @@
 const userModle = require("../../models/userModle");
 const Post = require("../../models/postModle");
-const { get } = require("mongoose");
 
 const getUser = async (req, res) => {
   try {

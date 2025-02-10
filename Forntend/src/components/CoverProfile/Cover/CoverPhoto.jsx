@@ -2,22 +2,24 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { FaCamera } from "react-icons/fa";
 import { MdUpload } from "react-icons/md";
 import { MdOutlinePhotoAlbum } from "react-icons/md";
-import OutSideClick from "../../components/HomePart/MiddelPart/click";
-import coverPhot from "../../assets/defaultImage/defaultcover.jpg";
+import coverPhot from "../../../assets/defaultImage/defaultcover.jpg";
 import { ToastContainer } from "react-toastify";
 import Cropper from "react-easy-crop";
 import BeatLoader from "react-spinners/BeatLoader";
 import { useDispatch, useSelector } from "react-redux";
-import getCropImg from "../Funcation/CreateImage";
+import getCropImg from "../../Funcation/CreateImage";
 import {
   useCreatePostMutation,
   useUploadCoverProfileMutation,
   useUploadPostMutation,
-} from "../../features/api/authApi";
-import { increment } from "../../features/counter/counterSlice";
+} from "../../../features/api/authApi";
+import { increment } from "../../../features/counter/counterSlice";
+import OutSideClick from "../../HomePart/MiddelPart/click";
+import ChooseCover from "./ChooseCover";
 
-const CoverPhoto = ({ coverImg, visitor }) => {
+const CoverPhoto = ({ coverImg, visitor, listImage, error, isLoading }) => {
   const [visible, setVisible] = useState(false);
+  const [show, setShow] = useState(false);
   const choseFie = useRef(null);
   const clientWidths = useRef(null);
   const uploadComplete = useRef(null);
@@ -32,8 +34,8 @@ const CoverPhoto = ({ coverImg, visitor }) => {
   const [uploadPost] = useUploadPostMutation();
   const [uploadCover] = useUploadCoverProfileMutation();
   const [createPost] = useCreatePostMutation();
-
   const clickOutside = useRef(null);
+
   OutSideClick(clickOutside, () => {
     setVisible(false);
   });
@@ -212,7 +214,10 @@ const CoverPhoto = ({ coverImg, visitor }) => {
                 ref={clickOutside}
                 className="absolute top-11 right-0 shadow-lg box-border px-4 py-2 bg-main_bg rounded-md w-64 z-10"
               >
-                <div className="flex items-center gap-x-2 text-center cursor-pointer group hover:bg-primary_bg py-2 px-3 rounded-md">
+                <div
+                  onClick={() => setShow(!show)}
+                  className="flex items-center gap-x-2 text-center cursor-pointer group hover:bg-primary_bg py-2 px-3 rounded-md"
+                >
                   <MdOutlinePhotoAlbum className="text-primary_bg group-hover:text-main_bg" />
                   <span className="font-GilroyMedium text-base text-primary_bg group-hover:text-main_bg">
                     Choose Cover Photo
@@ -250,6 +255,18 @@ const CoverPhoto = ({ coverImg, visitor }) => {
           </div>
         )}
       </div>
+
+      {show && (
+        <ChooseCover
+          setShow={setShow}
+          show={show}
+          listImage={listImage}
+          error={error}
+          isLoading={isLoading}
+          user={user}
+          setImage={setImage}
+        />
+      )}
     </>
   );
 };

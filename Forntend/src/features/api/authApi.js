@@ -95,6 +95,13 @@ export const authApi = createApi({
         data: respons,
       }),
     }),
+    details: builder.mutation({
+      query: ({ infos, id }) => ({
+        url: "/api/v1/auth/details",
+        method: "PUT",
+        body: { infos, id },
+      }),
+    }),
 
     //
   }),
@@ -112,6 +119,7 @@ export const {
   useGetUserProfileQuery,
   useUploadProfileMutation,
   useUploadCoverProfileMutation,
+  useDetailsMutation,
 } = authApi;
 
 // // Define a service using a base URL and expected endpoints

@@ -7,6 +7,7 @@ import {
 import "./App.css";
 import Registration from "./Pages/Registration";
 import "react-toastify/dist/ReactToastify.css";
+import "react-loading-skeleton/dist/skeleton.css";
 import Login from "./Pages/Login";
 import Home from "./Pages/Home";
 import Forgot from "./Pages/Forgot/Forgot";

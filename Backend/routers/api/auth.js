@@ -8,6 +8,7 @@ const resendOTPController = require("../../controllers/resendOTPController");
 const getUser = require("../../controllers/profileUser/getUser");
 const updateProfilePicController = require("../../controllers/profileUser/updateProfilePicController");
 const coverPhotoController = require("../../controllers/profileUser/CoverPhotoController");
+const detailsPartController = require("../../controllers/profileUser/detailsPartController");
 
 router.post("/", userController);
 router.post("/verify", emailVerifyController);
@@ -17,5 +18,6 @@ router.put("/resend", resendOTPController);
 router.get("/getuser/:userName", getUser);
 router.put("/updateprofile", updateProfilePicController);
 router.put("/updatecover", coverPhotoController);
+router.put("/details", detailsPartController);
 
 module.exports = router;
