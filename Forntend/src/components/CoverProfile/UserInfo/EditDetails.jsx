@@ -200,6 +200,7 @@ const EditDetails = ({
               handleInfos={handleInfos}
               loading={loading}
               name="relationShip"
+              rel
             />
           </div>
         </div>

@@ -13,6 +13,7 @@ const Details = ({
   handleInfos,
   loading,
   name,
+  rel,
 }) => {
   const [show, setShow] = useState(false);
   const Icon = () => {
@@ -67,6 +68,7 @@ const Details = ({
           setOpen={setShow}
           name={name}
           detail
+          rel={rel}
         />
       )}
     </>

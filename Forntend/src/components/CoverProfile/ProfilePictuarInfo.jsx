@@ -44,9 +44,11 @@ const ProfilePictuarInfo = ({ profile, visitor, listImage, user }) => {
         </div>
         <div>
           <h1 className="font-GilroyBold text-base md:text-xl text-primary_bg capitalize">
-            {profile?.fname + " " + profile?.lname}
+            {profile?.fname + " " + profile?.lname || "name"}
           </h1>
-          <h1 className="text-primary_bg">name</h1>
+          <h1 className="font-GilroyRegular text-base md:text-lg text-primary_bg capitalize">
+            {user.othername || "Other Name"}
+          </h1>
         </div>
       </div>
     </>

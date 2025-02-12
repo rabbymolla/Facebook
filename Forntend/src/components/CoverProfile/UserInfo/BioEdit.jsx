@@ -14,6 +14,7 @@ const BioEdit = ({
   placeholder,
   detail,
   setOpen,
+  rel,
 }) => {
   const clickOutside = useRef(null);
 
@@ -24,14 +25,30 @@ const BioEdit = ({
   });
   return (
     <div ref={clickOutside} className="mt-3">
-      <textarea
-        onChange={handleChange}
-        value={infos?.[name]}
-        maxLength={100}
-        name={name}
-        placeholder={placeholder}
-        className="font-GilroyMedium text-base text-primary_bg w-full h-28 bg-page_bg outline-none rounded-md p-2 resize-none placeholder:text-primary_bg placeholder:font-GilroyRegular"
-      />
+      {rel ? (
+        <select
+          className="w-full p-3 outline-none font-GilroyRegular text-base text-primary_bg cursor-pointer bg-page_bg"
+          name={name}
+          onChange={handleChange}
+          value={infos?.relationShip}
+        >
+          <option>Select relationship status</option>
+          <option value="Single">Single</option>
+          <option value="In a Relationship">In a Relationship</option>
+          <option value="Married">Married</option>
+          <option value="Devorced">Devorced</option>
+          <option value="Its Complicated">Its Complicated</option>
+        </select>
+      ) : (
+        <textarea
+          onChange={handleChange}
+          value={infos?.[name]}
+          maxLength={100}
+          name={name}
+          placeholder={placeholder}
+          className="font-GilroyMedium text-base text-primary_bg w-full h-28 bg-page_bg outline-none rounded-md p-2 resize-none placeholder:text-primary_bg placeholder:font-GilroyRegular"
+        />
+      )}
       {!detail && (
         <span className="font-GilroyRegular text-red_color w-full text-right block mt-1">
           {`${max} crechter remainig`}
