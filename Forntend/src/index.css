@@ -93,3 +93,18 @@ body {
   border-radius: 100%;
   outline: none;
 } */
+/* profile scroll fixed */
+.scrollFixed .profileLeft {
+  position: fixed;
+  width: 512px;
+}
+.scrollFixed .profileRight {
+  width: 768px;
+  margin-left: 528px;
+}
+.showless .profileLeft {
+  top: 10px;
+}
+.showmore .profileLeft {
+  top: 10px;
+}

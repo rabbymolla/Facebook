@@ -54,9 +54,9 @@ const InfoOptions = ({ userInfo, visitor, user }) => {
       setDetail(details);
       localStorage.setItem(
         "user",
-        JSON.stringify({ ...user, othername: details?.aotherName })
+        JSON.stringify({ ...user, othername: details.aotherName })
       );
-      dispatch(increment({ ...user, othername: details?.aotherName }));
+      dispatch(increment({ ...user, othername: details.aotherName }));
       setLoading(false);
       setShow(false);
     } catch (error) {
