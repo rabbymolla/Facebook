@@ -24,6 +24,7 @@ const CoverPhoto = ({ coverImg, visitor, listImage, error, isLoading }) => {
   const clientWidths = useRef(null);
   const uploadComplete = useRef(null);
   const [width, setWidth] = useState();
+  const [height, setHeight] = useState();
   const [image, setImage] = useState("");
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
@@ -89,7 +90,8 @@ const CoverPhoto = ({ coverImg, visitor, listImage, error, isLoading }) => {
 
   useEffect(() => {
     setWidth(clientWidths.current.clientWidth);
-  }, [window.innerWidth]);
+    setHeight(clientWidths.current.clientHeight);
+  }, [window.innerWidth, window.innerHeight]);
 
   //crope img function
   const handleCrope = useCallback(
@@ -186,7 +188,7 @@ const CoverPhoto = ({ coverImg, visitor, listImage, error, isLoading }) => {
               image={image}
               crop={crop}
               zoom={zoom}
-              aspect={width / 384}
+              aspect={width / height}
               // cropShape="round"
               onCropChange={setCrop}
               onCropComplete={onCropComplete}

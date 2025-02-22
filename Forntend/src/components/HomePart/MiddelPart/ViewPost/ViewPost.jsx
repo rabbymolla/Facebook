@@ -20,16 +20,14 @@ const ViewPost = ({ post }) => {
   const [commentImg, setCommentImg] = useState("");
   const [error, setError] = useState("");
   const textRef = useRef(null);
+
   return (
     <div className="bg-main_bg rounded-lg shadow-md py-3 border border-solid border-page_bg mb-5">
       <div className="flex items-center justify-between mb-3 px-5">
         <div className="flex items-center gap-x-2">
           <div className="w-12 h-12  bg-primary_bg rounded-full overflow-hidden object-cover">
             <Link to={`/profile/${post.user.userName}`}>
-              <img
-                src={post.user === "profilePicture" || avater}
-                alt="profile pic"
-              />
+              <img src={post.user.profilePicture || avater} alt="profile pic" />
             </Link>
           </div>
           <div>
@@ -38,7 +36,7 @@ const ViewPost = ({ post }) => {
                 to={`/profile/${post.user.userName}`}
                 className="font-GilroyMedium text-lg text-primary_bg capitalize"
               >
-                {post.user.fname + " " + post.user.lname}
+                {post.user.fname + " " + post.user.lname || "Your Name"}
               </Link>
               {post.type === "coverPhoto" && (
                 <span className="font-GilroyMedium text-xs md:text-base text-page_bg">

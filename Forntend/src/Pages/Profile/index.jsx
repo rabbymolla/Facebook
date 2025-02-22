@@ -13,6 +13,7 @@ import ProfileMenu from "../../components/CoverProfile/ProfileMenu";
 import ProfileLeft from "../../components/CoverProfile/ProfileLeft";
 import ProfileRight from "../../components/CoverProfile/ProfileRight";
 import { useMediaQuery } from "react-responsive";
+import UpoladPhoto from "../../components/CoverProfile/UploadProfile/UpoladPhoto";
 
 const Profile = ({ posts }) => {
   const user = useSelector((state) => state.counter.value);
@@ -23,6 +24,9 @@ const Profile = ({ posts }) => {
   const [height, setHeight] = useState();
   const [scrollHeight, setScrollHeight] = useState();
   const [leftHeight, setLeftHeight] = useState();
+  const [othername, setOthername] = useState();
+  const [visible, setVisible] = useState(false);
+  const uploadPhoto = useRef(null);
 
   const username = userName === undefined ? user.userName : userName;
   const { data: profile } = useGetUserProfileQuery(username);
@@ -39,6 +43,7 @@ const Profile = ({ posts }) => {
     } else {
       listImage({ path, sort, max });
     }
+    setOthername(profile?.details?.aotherName);
   }, [profile]);
 
   const visitor = username !== user.userName ? true : false;
@@ -57,7 +62,7 @@ const Profile = ({ posts }) => {
   };
 
   const check = useMediaQuery({
-    query: "(min-width: 992px)",
+    query: "(min-width: 768px)",
   });
   return (
     <>
@@ -71,9 +76,9 @@ const Profile = ({ posts }) => {
         <>
           <div
             ref={profileTop}
-            className="border-b border-page_bg pb-20 sm:pb-5 md:pb-12 lg:pb-6 mb-5"
+            className="border-b border-page_bg pb-2 sm:pb-5 md:pb-12 lg:pb-6 mb-5"
           >
-            <div className=" relative">
+            <div className="relative">
               <CoverPhoto
                 listImage={imgData?.resources}
                 error={imgErr}
@@ -81,18 +86,21 @@ const Profile = ({ posts }) => {
                 coverImg={profile?.coverPhoto}
                 visitor={visitor}
               />
-              <div className="absolute -bottom-14 md:-bottom-24 left-5">
+              <div className="flex justify-center sm:justify-start -translate-y-5 sm:translate-y-0 sm:absolute sm:left-5 sm:bottom-[-3.5rem] md:bottom-[-6rem] w-full sm:w-auto">
                 <ProfilePictuarInfo
-                  listImage={imgData?.resources}
                   error={imgErr}
                   isLoading={imgLoding}
                   profile={profile}
                   visitor={visitor}
                   user={user}
+                  othername={othername}
+                  uploadPhoto={uploadPhoto}
+                  visible={visible}
+                  setVisible={setVisible}
                 />
               </div>
             </div>
-            <div className="hidden sm:block w-1/2 ml-auto">
+            <div className="flex justify-center sm:justify-end w-full sm:w-1/2  sm:ml-auto">
               <ProfileMenu
                 imgData={imgData?.resources}
                 posts={profile?.posts}
@@ -101,7 +109,7 @@ const Profile = ({ posts }) => {
           </div>
 
           <div
-            className={`sm:grid sm:grid-cols-[2fr,3fr] sm:gap-x-4 sm:w-[95%] xl:w-[80%] sm:mx-auto ${
+            className={`md:grid md:grid-cols-[2fr,3fr] md:gap-x-4 md:w-[95%] xl:w-[80%] md:mx-auto ${
               check && scrollHeight > height && leftHeight > 1000
                 ? "scrollFixed showless"
                 : check &&
@@ -110,7 +118,7 @@ const Profile = ({ posts }) => {
                   "scrollFixed showmore"
             }`}
           >
-            <div ref={profileLeftRef} className="profileLeft hidden sm:block ">
+            <div ref={profileLeftRef} className="profileLeft">
               <ProfileLeft
                 imgData={imgData}
                 imgLoding={imgLoding}
@@ -118,6 +126,7 @@ const Profile = ({ posts }) => {
                 userInfo={profile?.details}
                 visitor={visitor}
                 user={user}
+                setOthername={setOthername}
               />
             </div>
 
@@ -127,6 +136,16 @@ const Profile = ({ posts }) => {
           </div>
         </>
       </div>
+
+      {visible && (
+        <UpoladPhoto
+          uploadPhoto={uploadPhoto}
+          visible={visible}
+          setVisible={setVisible}
+          listImage={imgData?.resources}
+          user={user}
+        />
+      )}
     </>
   );
 };

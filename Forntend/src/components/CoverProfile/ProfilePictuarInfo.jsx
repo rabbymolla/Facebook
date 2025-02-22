@@ -3,20 +3,17 @@ import avater from "../../assets/defaultImage/avatar.png";
 import { FaCamera } from "react-icons/fa";
 import UpoladPhoto from "./UploadProfile/UpoladPhoto";
 
-const ProfilePictuarInfo = ({ profile, visitor, listImage, user }) => {
-  const [visible, setVisible] = useState(false);
-  const uploadPhoto = useRef(null);
+const ProfilePictuarInfo = ({
+  profile,
+  visitor,
+  user,
+  othername,
+  uploadPhoto,
+  visible,
+  setVisible,
+}) => {
   return (
     <>
-      {visible && (
-        <UpoladPhoto
-          uploadPhoto={uploadPhoto}
-          visible={visible}
-          setVisible={setVisible}
-          listImage={listImage}
-          user={user}
-        />
-      )}
       <div className="flex items-end md:items-center gap-x-4 ">
         <div className="relative">
           <div
@@ -47,7 +44,7 @@ const ProfilePictuarInfo = ({ profile, visitor, listImage, user }) => {
             {profile?.fname + " " + profile?.lname || "name"}
           </h1>
           <h1 className="font-GilroyRegular text-base md:text-lg text-primary_bg capitalize">
-            {user.othername || "Other Name"}
+            {othername || "Other Name"}
           </h1>
         </div>
       </div>

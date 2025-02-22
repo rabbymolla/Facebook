@@ -103,8 +103,8 @@ body {
   margin-left: 528px;
 }
 .showless .profileLeft {
-  top: 10px;
+  bottom: 10px;
 }
 .showmore .profileLeft {
-  top: 10px;
+  bottom: 10px;
 }

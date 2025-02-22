@@ -37,7 +37,7 @@ const ProLeftPhotos = ({ imgData, imgLoding, imgErr }) => {
       {imgLoding ? (
         <Skeleton count={4} />
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-5">
+        <div className="grid grid-cols-2 gap-3 mt-5">
           {imgData?.resources &&
             imgData?.resources.length &&
             imgData?.resources

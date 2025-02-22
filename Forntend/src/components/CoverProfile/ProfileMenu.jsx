@@ -3,7 +3,7 @@ import React from "react";
 const ProfileMenu = ({ posts, imgData }) => {
   return (
     <div>
-      <div className="py-2 lg:py-5 flex gap-x-3 md:gap-x-5 justify-end">
+      <div className="py-2 lg:py-5 flex gap-x-3 md:gap-x-5 sm:justify-end">
         <div className="text-center">
           <p className="font-GilroyRegular text-xs md:text-base text-primary_bg">
             Friends

@@ -9,13 +9,19 @@ const ProfileLeft = ({
   userInfo,
   visitor,
   user,
+  setOthername,
 }) => {
   return (
     <>
       <div className="w-full bg-main_bg rounded-md shadow-md p-3 border border-solid border-page_bg mb-5">
-        <UserDeatils userInfo={userInfo} user={user} visitor={visitor} />
+        <UserDeatils
+          setOthername={setOthername}
+          userInfo={userInfo}
+          user={user}
+          visitor={visitor}
+        />
       </div>
-      <div className="w-full bg-main_bg rounded-md shadow-md p-3 border border-solid border-page_bg">
+      <div className="w-full bg-main_bg rounded-md shadow-md p-3 border border-solid border-page_bg mb-5 md:mb-0">
         <ProLeftPhotos
           imgData={imgData}
           imgLoding={imgLoding}

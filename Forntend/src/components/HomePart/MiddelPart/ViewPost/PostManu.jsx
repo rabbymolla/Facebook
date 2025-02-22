@@ -12,8 +12,6 @@ const PostManu = ({ setManuVisible, post, user, postImages }) => {
   const postManuRef = useRef(null);
   const [test, setTest] = useState(post.user._id === user.id ? true : false);
 
-  console.log(postImages);
-
   OutSideClick(postManuRef, () => {
     setManuVisible(false);
   });
