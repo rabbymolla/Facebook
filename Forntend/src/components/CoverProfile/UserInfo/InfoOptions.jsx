@@ -291,7 +291,7 @@ const InfoOptions = ({ userInfo, visitor, user, setOthername }) => {
       </div>
       {/* modal part */}
       <div
-        className={`fixed top-0 left-0 flex items-center justify-center w-full h-screen  z-10 transition-all duration-300
+        className={`fixed top-0 left-0 flex items-center justify-center w-full h-screen  z-50 transition-all duration-300
               ${
                 modal
                   ? "opacity-100 scale-100 bg-opcity_color"

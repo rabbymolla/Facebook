@@ -23,7 +23,7 @@ const ViewPost = ({ post }) => {
 
   return (
     <div className="bg-main_bg rounded-lg shadow-md py-3 border border-solid border-page_bg mb-5">
-      <div className="flex items-center justify-between mb-3 px-5">
+      <div className="flex items-center justify-between mb-3 px-1 sm:px-5">
         <div className="flex items-center gap-x-2">
           <div className="w-12 h-12  bg-primary_bg rounded-full overflow-hidden object-cover">
             <Link to={`/profile/${post.user.userName}`}>
@@ -34,7 +34,7 @@ const ViewPost = ({ post }) => {
             <div className="flex items-center gap-x-1">
               <Link
                 to={`/profile/${post.user.userName}`}
-                className="font-GilroyMedium text-lg text-primary_bg capitalize"
+                className="font-GilroyMedium text-xs sm:text-sm mdtext-lg text-primary_bg capitalize"
               >
                 {post.user.fname + " " + post.user.lname || "Your Name"}
               </Link>

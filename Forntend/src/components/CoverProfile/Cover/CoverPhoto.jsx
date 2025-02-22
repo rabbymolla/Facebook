@@ -166,7 +166,7 @@ const CoverPhoto = ({ coverImg, visitor, listImage, error, isLoading }) => {
       <ToastContainer />
       <div
         ref={clientWidths}
-        className="relative w-full h-full md:h-96 mt-[69px] cursor-pointer"
+        className="relative w-full h-52 md:h-96 mt-[69px] cursor-pointer"
       >
         <img
           className="w-full h-full object-cover"

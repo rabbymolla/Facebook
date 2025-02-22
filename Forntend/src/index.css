@@ -97,6 +97,7 @@ body {
 .scrollFixed .profileLeft {
   position: fixed;
   width: 512px;
+  z-index: 1;
 }
 .scrollFixed .profileRight {
   width: 768px;
@@ -107,4 +108,44 @@ body {
 }
 .showmore .profileLeft {
   bottom: 10px;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .scrollFixed .profileLeft {
+    position: fixed;
+    width: 285.43px;
+  }
+  .scrollFixed .profileRight {
+    width: 428.16px;
+    margin-left: 302px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .scrollFixed .profileLeft {
+    position: fixed;
+    width: 370.56px;
+  }
+  .scrollFixed .profileRight {
+    width: 555.83px;
+    margin-left: 387px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .scrollFixed .profileLeft {
+    position: fixed;
+    width: 377.6px;
+  }
+  .scrollFixed .profileRight {
+    width: 566.4px;
+    margin-left: 393px;
+  }
+}
+@media (min-width: 1400px) and (max-width: 1619px) {
+  .scrollFixed .profileLeft {
+    position: fixed;
+    width: 441.6px;
+  }
+  .scrollFixed .profileRight {
+    width: 662.4px;
+    margin-left: 455px;
+  }
 }
